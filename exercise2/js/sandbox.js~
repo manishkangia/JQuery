@@ -12,7 +12,7 @@ $(document).ready(function() {
                                
                                $firstLi = $("#slideshow li:first");
                                $firstLi.addClass('current');
-                               $firstLi.siblings().addClass('current');
+                               $firstLi.siblings().addClass('disabled');
                                
                              });
                              

@@ -15,9 +15,12 @@ $(document).ready(function() {
                                                   });
                               $search_text.blur( function() { 
                                                      var $this = $(this);
-                                                     if($this.val().length == 0) {
+                                                     if($this.val().trim().length == 0) {
                                                          $this.addClass('hint');
                                                          $this.val(hint_text);
+                                                     }
+                                                     else {
+                                                     $this.val($this.val().trim());
                                                      }
                                                  });
                     

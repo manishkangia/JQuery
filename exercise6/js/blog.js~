@@ -13,6 +13,7 @@ $theUl.find('a').click(function(e) {
             $paraToCheck.slideUp();
         }
     }
+    
     //find the current para to be displayed and then slide it down using displayPara function
     $current_para = $this.closest('li').find('p');
     displayPara($current_para);

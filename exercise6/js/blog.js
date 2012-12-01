@@ -4,7 +4,7 @@ $theUl.find('a').click(function(e) {
     var $this = $(this);
     
     //list of paragraphs in the unordered list
-    $lisParas = $theUl.find('p');
+    $lisParas = $theUl.find('p.excerpt');
     
     //slide up the current visible paragraph
     for ( var i = 0; i<$lisParas.length; i++ ) {

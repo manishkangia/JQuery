@@ -11,7 +11,7 @@ $(document).ready( function animation() {
 function toAnimate( $items, index) {
     $navigationBar.find('p').html( (index+1) + "/" + $items.length );
     $items.eq(index).fadeIn(1000).delay(3000).fadeOut(1000, function() {
-        if(index == 2) {
+        if(index == ($items.length - 1)) {
            index = 0;
         }
         else {

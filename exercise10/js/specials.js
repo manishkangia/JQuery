@@ -18,11 +18,17 @@ $select.one( "change", function() {
     });
     //the second function
     $select.change( function () {
-        var selectedValue = $select.val(); 
+        var selectedValue = $select.val();
+        console.log(selectedValue);
+        if(!selectedValue) {
+        $newDiv.html("please select an option<br><br>");
+        } 
+        else {
         $newDiv.html(specialsDetailsJSON[selectedValue].title + '<br><br>' + specialsDetailsJSON[selectedValue].text);
         $newDiv.css({"color":specialsDetailsJSON[selectedValue].color});
         var url = "url('" + specialsDetailsJSON[selectedValue].image + "')";
         $newDiv.css({ "background-image" : url});
+        }
     });
 });
 

@@ -15,5 +15,6 @@ $('div.stackDiv').live( 'click' , function() {
 
 //the last div to be deleted
 $('#container div.stackDiv:nth-child(1)').live( 'click' , function() {
+    divIndex--;
     $(this).remove();
 });

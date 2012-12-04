@@ -7,12 +7,7 @@ $theUl.find( 'a' ).click(function(e) {
     $lisParas = $theUl.find( 'p.excerpt' );
     
     //slide up the current visible paragraph
-    for ( var i = 0; i<$lisParas.length; i++ ) {
-        var $paraToCheck = $lisParas.eq(i);
-        if($paraToCheck.css( 'display' ) == 'block' ) {
-            $paraToCheck.slideUp();
-        }
-    }
+    $theUl.find('p:visible').slideUp();
     
     //find the current para to be displayed and then slide it down using displayPara function
     $current_para = $this.closest('li').find('p');

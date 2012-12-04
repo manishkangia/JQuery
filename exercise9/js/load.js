@@ -4,10 +4,10 @@ $headingsList = $theUl.find('li h3');
 
 //add a div element after each heading
 $headingsList.each(function() {
-                        $newDiv = $('<div></div>');
-                        $newDiv.insertAfter($(this));
-                        $(this).data("associatedDiv",$newDiv);
-                   });
+    $newDiv = $('<div></div>');
+    $newDiv.insertAfter($(this));
+    $(this).data("associatedDiv",$newDiv);
+});
                     
 //bind the click event with a function that loads its assoicated div content                    
 $headingsList.click(function(e) {

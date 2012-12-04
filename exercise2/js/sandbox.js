@@ -3,7 +3,7 @@ $(document).ready(function() {
        console.log(this.alt);
     });
 
-    $( '#search input:text' ).parent().addClass( 'new' );
+    $( '#search input:text' ).closest('form#search').addClass( 'new' );
     $listItem = $( "#myList .current" );
     $listItem.next().addClass( 'current' );
     $listItem.removeClass( 'current' );

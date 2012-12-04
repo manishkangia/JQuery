@@ -17,8 +17,8 @@ $(document).ready( function() {
         $newList.append($newListElement);
     });
 
-    //making the first tab visible 
-    $newList.find('li').eq(0).click();
+    //making the first tab visible and add class to it by calling its click function
+    $newList.find('li').eq(0).addClass('current').click();
 
     //styling for the list elements
     $list = $newList.find('li');
@@ -30,14 +30,12 @@ $(document).ready( function() {
 function bindAction( $newListElement ) {
     $newListElement.click( function() { 
         //find the parent ul and then all its li which have visible div
-        $unorderedList = $newListElement.parent();
+        $unorderedList = $newListElement.closest('ul');
         $current_list = $unorderedList.find( 'li.current' ); 
-            if($current_list.length > 0) {
-                $current_list.data( 'associatedDiv' ).hide();
-                $current_list.removeClass( 'current' );
-            }
+        $current_list.data( 'associatedDiv' ).hide();
+        $current_list.removeClass( 'current' );
         
-        //show the associated div for the list itme clicked
+        //show the associated div for the list item clicked
         $newListElement.data( 'associatedDiv' ).show();
         $newListElement.addClass( 'current' );
     })

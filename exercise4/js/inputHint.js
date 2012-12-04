@@ -1,29 +1,29 @@
 $(document).ready(function() {
-                              $label = $('form#search').find('label');
-                              $search_text = $('input.input_text');
-                              var hint_text=$label.text();
-                              $search_text.val(hint_text);
+    $label = $( 'form#search' ).find( 'label' );
+    $search_text = $( 'input.input_text' );
+    var hint_text=$label.text();
+    $search_text.val(hint_text);
 
-                              $('input.input_text').addClass('hint');
+    $( 'input.input_text' ).addClass( 'hint' );
 
-                              $label.remove();
+    $label.remove();
 
-                              $search_text.focus( function() {
-                                                      var $this = $(this);
-                                                      $this.removeClass('hint');
-                                                      $this.val("");
-                                                  });
-                              $search_text.blur( function() { 
-                                                     var $this = $(this);
-                                                     if($this.val().trim().length == 0) {
-                                                         $this.addClass('hint');
-                                                         $this.val(hint_text);
-                                                     }
-                                                     else {
-                                                     $this.val($this.val().trim());
-                                                     }
-                                                 });
-                    
-                  });
+    $search_text.focus( function() {
+        var $this = $(this);
+        $this.removeClass( 'hint' );
+        $this.val( "" );
+    });
+    
+    $search_text.blur( function() { 
+        var $this = $(this);
+        if ( $this.val().trim().length == 0 ) {
+           $this.addClass( 'hint' );
+           $this.val( hint_text );
+        }                
+        else {
+           $this.val( $this.val().trim() );
+        }
+    });
+});
 
 

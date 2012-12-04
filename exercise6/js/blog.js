@@ -1,22 +1,22 @@
-$theDiv = $('div#blog');
+$theDiv = $( 'div#blog' );
 $theUl = $theDiv.find('ul').eq(0);
-$theUl.find('a').click(function(e) {
+$theUl.find( 'a' ).click(function(e) {
     var $this = $(this);
     
     //list of paragraphs in the unordered list
-    $lisParas = $theUl.find('p.excerpt');
+    $lisParas = $theUl.find( 'p.excerpt' );
     
     //slide up the current visible paragraph
     for ( var i = 0; i<$lisParas.length; i++ ) {
         var $paraToCheck = $lisParas.eq(i);
-        if($paraToCheck.css('display')=='block') {
+        if($paraToCheck.css( 'display' ) == 'block' ) {
             $paraToCheck.slideUp();
         }
     }
     
     //find the current para to be displayed and then slide it down using displayPara function
     $current_para = $this.closest('li').find('p');
-    displayPara($current_para);
+    displayPara( $current_para );
     
     //prevent the click event on anchor tag
     e.preventDefault();  
@@ -24,6 +24,6 @@ $theUl.find('a').click(function(e) {
 
 //function to display the current para needed
 function displayPara() {
-    $current_para.css({'display':'block'});
+    $current_para.css({ 'display' : 'block' });
     $current_para.hide().delay(450).slideDown();
 }

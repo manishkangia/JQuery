@@ -1,6 +1,6 @@
 $(document).ready( function() {
     //hide the div.module divs
-    $( 'div.module' ).attr( 'hidden', 'true' );
+    $( 'div.module' ).hide();
 
     //create a new ul list 
     $newList = $( '<ul></ul>' );
@@ -32,11 +32,10 @@ function bindAction( $newListElement ) {
         //find the parent ul and then all its li which have visible div
         $unorderedList = $newListElement.parent();
         $current_list = $unorderedList.find( 'li.current' ); 
-          
-        $current_list.each( function() {
-            $(this).data( 'associatedDiv' ).hide();
-            $(this).removeClass( 'current' );
-        });
+            if($current_list.length > 0) {
+                $current_list.data( 'associatedDiv' ).hide();
+                $current_list.removeClass( 'current' );
+            }
         
         //show the associated div for the list itme clicked
         $newListElement.data( 'associatedDiv' ).show();

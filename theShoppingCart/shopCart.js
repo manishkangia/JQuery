@@ -146,7 +146,6 @@ $(function() {
                 });
             }
             else {
-                console.log("else called");
                 $displayedDivs.show();
             }
         });

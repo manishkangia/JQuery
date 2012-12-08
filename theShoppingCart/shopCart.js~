@@ -76,7 +76,6 @@ $(function() {
                 var objNumber = $parentDiv.data( "linkedTo" )[0];
                 var product = collections[objNumber];
                 var productPrice = ( collections[objNumber][ "price" ].split(':')[1] ).trim();
-                console.log(productPrice,productQuantity);
                 addDisplay($parentDiv.find( 'img' ));
             }
             else {

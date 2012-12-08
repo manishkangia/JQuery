@@ -12,15 +12,18 @@ $.ajax({
 
 $(function () {
     var list = myJSONObject;
+    
     //display all initially in various divs
     for (var i = 0; i < list.length; i++) {
         var $newDiv = $( '<div class=ad style=float:left></div>' );
         src = "images/" + list[i].url;
         var $image = $( "'<img src=" + src + "></img>'");
         $newDiv.append($image);
+        //link the associated json object
         $newDiv.data( "object", myJSONObject[i]);
         $( '#container' ).append($newDiv);
     }
+    
     //assigning a function on click of each parameter
     $( '#parameters ul li input' ).click( function() {
         updateTable();

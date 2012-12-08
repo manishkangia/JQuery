@@ -6,6 +6,7 @@
       img { height:150px;width:150px;margin:0px;}
       ul { list-style : none;}
       div { margin : 1px;}
+      #container { float:left;width:760px;border:3px solid black;background:lavender; }
       </style>
       <script src="jquery-1.5.1.js"></script>
       <script type="text/javascript" src="productGrid.js">
@@ -26,13 +27,11 @@
               <li><input class="color" type="checkbox" value="Red">Red</li>
               <li><input class="color" type="checkbox" value="Yellow">Yellow</li>
           </ul>
-          <ul class="sold_out" id="toggler">
-              <li><input class="sold_out" type="checkbox" value="0">Available Only</input></li>
+          <ul class="sold_out" >
+              <li><input id="toggler" class="sold_out" type="checkbox" value="0">Available Only</input></li>
           </ul>
           </div>
-          
-          
-          <div id="container" style="float:left;width:760px;border:3px solid black;background:white;">
+          <div id="container" style="">
           </div>
       </div>
   </body>

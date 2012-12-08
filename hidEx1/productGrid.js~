@@ -25,10 +25,12 @@ $(function () {
     $( '#parameters ul li input' ).click( function() {
         updateTable();
     });
+    
     //function to update the table 
     function updateTable() {
         var $divlist = $( 'div.ad' );
         var selectedParameter = [];
+        
     //collecting the values which are checked in each list of parameters(brands,color,availability) and displaying only those divs
         $( '#parameters ul' ).each( function () {
             $(this).find('li input' ).each( function() {
@@ -49,6 +51,7 @@ $(function () {
             }
         });
     }
+    
     //function to show divs that match the value that has been selected in the json object attached to them as data
     function showdivs($divs,selectedvalues,factor) {
         for ( var i = 0; i < $divs.length; i++ ) {

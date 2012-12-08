@@ -1,0 +1,153 @@
+* {
+margin:0px;
+padding:0px;
+}
+
+#container {
+    background:Lightblue;
+    position:relative;
+    left:20%;
+    top:50px;
+    width:700px;
+    height:539px;
+    border:2px solid black;
+}
+
+#header {
+    border-bottom:1px solid black;
+    height:35px;
+}
+
+#footer {
+    position:absolute;
+    clear:both;
+    background:Cadetblue;
+    width:700px;
+    height:50px;
+    bottom:0px;
+}
+
+#footer input {
+    float:right;
+    margin-top:15px;
+    margin-right:5px;
+}
+
+#containDisplay {
+    clear:both;
+    overflow:scroll;
+    height:418px;
+    background:Cadetblue;
+}
+
+#buyDisplay {
+    clear:both;
+    overflow:scroll;
+    height:421px;
+    background:cadetblue;
+}
+
+#buyDisplayMain {
+    background : white;
+}
+
+#buyDisplayMain div.holdHeadings {
+    clear:both;
+    height:30px;
+    width:700px;
+    border-bottom:2px white solid;
+    background:cadetblue;
+}
+
+#buyDisplayMain div.holdHeadings div {
+    margin-top:5px;
+}
+
+#buyDisplay div.boughtItem { 
+    height:80px;
+    border-bottom:2px white solid;
+    background:lightseagreen;
+}
+
+#buyDisplay div.boughtItem div {
+    float:left;
+    height:40px;
+    margin-top:20px;
+    border-right:1px solid white;
+    padding-top:10px;
+}
+
+#buyDisplay div.boughtItem div p {
+   text-align:center;
+}
+
+.displayItem {
+    border:1px white solid;
+    background:LightGray;
+    width:685px;
+    clear:both;
+    height:80px;
+}
+
+.displayInfo {
+    background:darkseagreen;
+    width:440px;
+    float:left;
+    height:80px;
+}
+
+.headings {
+    width:200px;
+    height:30px;
+    float:left;
+    margin:4px 5px 0px 5px;
+    padding:0px;
+    border:1px solid black;
+}
+
+.extraitems {
+    background:Cadetblue;
+    height:30px;
+    clear:both;
+    margin:0px 0px 5px 0px;
+    padding:0px;
+    border:0px;
+}
+
+.extraitems input {
+    float:left;
+    margin-top:5px;
+}
+
+.qtyAdd {
+    background:Cadetblue;
+    width:244px;
+    float:left;
+    height:80px;
+}
+
+.qtyAdd input {
+    width:100px;
+    margin:25px 0px;
+}
+
+.myCartHeadings {
+float:left;
+border-right:1px solid white;
+}
+
+img {
+    float:left;
+    height:40px;
+    width:40px;
+    margin:20px 5px 20px 10px;
+}
+
+p {
+padding:0px;
+margin:0px;
+}
+
+body {
+background:mintcream;
+}

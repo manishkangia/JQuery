@@ -1,79 +1,49 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-</html>
+<!DOCTYPE html>
+<html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <script src="jquery-1.5.1.js"></script>
         <script src="shopCart.js"></script>
+        <link href="shopCart.css" type="text/css" rel="stylesheet" />
         <style>
-        *
-{
-margin:0px;
-padding:0px;
-}
-            #container { background:AliceBlue;position:relative;left:20%;top:50px;width:700px;height:539px;border:1px solid black; }
-            
-            #header { border-bottom:1px solid black;height:35px; }
-            
-            #footer { position:absolute;clear:both;background:LightGray;width:700px;height:50px;bottom:0px; }
-            #footer input { float:right;margin-top:15px; }
-            
-            #containDisplay { clear:both;overflow:scroll;height:418px;background:LightGray; }
-            
-            #buyDisplay { clear:both;overflow:scroll;height:453px;background:LightGray; }
-            #buyDisplay div.holdHeadings { clear:both;height:30px;width:700px;border-bottom:2px white solid;margin-top:5px; }
-            #buyDisplay div.boughtItem { height:80px;border-bottom:2px white solid; }
-            #buyDisplay div.boughtItem div { float:left;height:40px;margin-top:20px;border-right:1px solid white;padding-top:10px; }
-            #buyDisplay div.boughtItem div p { text-align:center; }
-            
-            .displayItem { border:1px white solid;background:LightGray;width:700px;clear:both;height:80px; }
-            .displayInfo { background:LightGray;width:440px;float:left;height:80px; }
-            .headings { width:200px;height:30px;float:left;margin:4px 5px 0px 5px;padding:0px;border:1px solid black; }
-            .extraitems { background:LightGray;height:30px;clear:both;margin:0px 0px 5px 0px;padding:0px;border:0px; }
-            .qtyAdd { background:LightGray;width:240px;float:left; }
-            .qtyAdd input { width:100px;margin:15px 0px; }
-            .myCartHeadings { float:left; }
-            
-            img { float:left;height:40px;width:40px;margin:20px 5px 20px 10px; }
-            p { padding:0px;margin:0px; }
-            body { background:AliceBlue }
         </style>
     </head>
     <body>
         <div id="container">
             <div id="header">
-                <div class="headings" align="center" style="background:Lightgray;border-bottom:1px solid LightGray"><p style="margin-top:3px;">Products</p>
+                <div class="headings" align="center" style="background:Lightgray;border-bottom:1px solid Cadetblue"><p style="margin-top:3px;">Products</p>
                 </div>
                 <div class="headings" align="center"><p style="margin-top:3px;">My Cart (0)</p>
                 </div>
             </div>
             <div class="extraitems">
                 <p style="float:left;margin-top:7px;">Search:</p>
-                <input id="searchItem" style="float:left;margin-top:5px;" type="text"></input>
-                <input id="search" style="float:left;margin-top:5px;" type="button" value="search"></input>
-                <input id="clear" style="float:left;margin:5px 21px 0px 0px;" type="button" value="clear"></input>
-                Categories:&nbsp;&nbsp;
-                <select id="categories" style="margin-top:5px;margin-left:12px;">
-                    <option>All</option>
+                <input id="searchItem" type="text"></input>
+                <input id="search" type="button" value="Search"></input>
+                <input id="clear"  type="button" value="Clear" style="margin-right:4px;"></input>
+                &nbsp;&nbsp;&nbsp;&nbsp;Categories&nbsp;:
+                <select id="categories" style="margin-top:5px;">
+                    <option>All&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
                     <option>Computers</option>
                     <option>Cameras</option>
                 </select>
             </div>
             <div id="containDisplay">
             </div>
-            <div id="buyDisplay">
-                <div class="holdHeadings">
-                    <div class="myCartHeadings" style="width:300px;">Products</div>
-                    <div class="myCartHeadings" style="width:65px;">Price</div>
-                    <div class="myCartHeadings" style="width:95px;">Quantity</div>
-                    <div class="myCartHeadings" style="width:111px;">Subtotal</div>
+            <div id="buyDisplayMain">
+                <div align="center" class="holdHeadings">
+                    <div class="myCartHeadings" style="width:295px;">Products</div>
+                    <div class="myCartHeadings" style="width:70px;">Price</div>
+                    <div class="myCartHeadings" style="width:78px;">Quantity</div>
+                    <div class="myCartHeadings" style="width:119px;">Subtotal</div>
+                </div>
+                <div id="buyDisplay">
                 </div>
             </div>
             <div id="footer">
-                <input type="button" value="checkout"></input>
-                <input type="text" value="0.0"></input>
-                <p style="float:right;margin-top:15px;">Total:</p>
+                <input id="checkout" type="button" value="CheckOut" style="width:230px;height:30px;margin-top:10px;border:2px solid gray;background:Lightgray;color:white;font-size:17px;"></input>
+                <input disabled type="text" value="0.0" style="margin-top:9px;height:25px;"></input>
+                <p style="float:right;margin-top:15px;height:25px;">Total:&nbsp;&nbsp;</p>
             </div>
         </div>
     </body>

@@ -1,6 +1,7 @@
 var collections;
 $(function() {
-    $mainDiv = $( '#containDisplay' );
+    var $itemDisplayDiv = $( '#containDisplay' );
+    var $boughtItemsDisplay = $( '#buyDisplayMain' );
     //Ajax Call
     $.ajax({
         url : 'shopCart.json',
@@ -27,9 +28,9 @@ $(function() {
             //create the main div and within that two divs
             //first for all the information
             //second for quantity and Add to Cart button
-            $newMainDiv = $( '<div class=displayItem></div>' );
+            var $newMainDiv = $( '<div class=displayItem></div>' );
             
-            $newDiv = $( '<div class=displayInfo>' + html + '</div>' );
+            var $newDiv = $( '<div class=displayInfo>' + html + '</div>' );
             $newMainDiv.append( $newDiv );
             
             $newDiv = $( '<div class=qtyAdd>Quantity : <input type=text style="width:30px" value="0"></input><input type="button" value="Add to Cart"></input></div>' );
@@ -38,28 +39,28 @@ $(function() {
             //save the index and the object with the mainDiv 
             $newMainDiv.data( "linkedTo", [ index, item ] );
             
-            $mainDiv.append( $newMainDiv );
-            
-            //hide the buy display div(the one associated with heading 'My Cart'
-            $('#buyDisplay').hide();
-        });
-    
+            $itemDisplayDiv.append( $newMainDiv );
+        });    
+        
+        //hide the buy display div(the one associated with heading 'My Cart'
+        $boughtItemsDisplay.hide();
+        
         //assign the click function to the headings: 'Products'
         $( 'div.headings' ).eq(0).click( function() {
-            $(this).css({ 'background' : 'Lightgray', 'border-bottom' : '1px solid LightGray' });
+            $(this).css({ 'background' : 'Cadetblue', 'border-bottom' : '1px solid Cadetblue' });
             $( 'div.headings' ).eq(1).css({ 'background' : 'white', 'border-bottom' : '1px solid black' });
-            $( '#containDisplay' ).show();
+            $itemDisplayDiv.show();
             $( 'div.extraitems' ).show();
-            $( '#buyDisplay' ).hide();
+            $boughtItemsDisplay.hide();
         });
     
         //assign the click function to the headings: 'Mycart'
         $( 'div.headings' ).eq(1).click( function() {
-            $(this).css({ 'background' : 'Lightgray', 'border-bottom' : '1px solid LightGray' });
+            $(this).css({ 'background' : 'Cadetblue', 'border-bottom' : '1px solid Cadetblue' });
             $( 'div.headings' ).eq(0).css({ 'background' : 'white', 'border-bottom' : '1px solid black' });
-            $( '#containDisplay' ).hide();
+            $itemDisplayDiv.hide();
             $( 'div.extraitems' ).hide();
-            $( '#buyDisplay' ).show();
+            $boughtItemsDisplay.show();
         });
         
         //the action to be performed on the click on 'add to cart' button
@@ -74,7 +75,7 @@ $(function() {
                 var $parentDiv = $(this).parents( 'div.displayItem' ); 
                 var objNumber = $parentDiv.data( "linkedTo" )[0];
                 var product = collections[objNumber];
-                var productPrice = parseFloat( collections[objNumber][ "price" ].split(':')[1] ).toFixed(2);
+                var productPrice = ( collections[objNumber][ "price" ].split(':')[1] ).trim();
                 addDisplay($parentDiv.find( 'img' ));
             }
             else {
@@ -83,60 +84,59 @@ $(function() {
             
             //function to add the element in the second div'my cart'
             function addDisplay( image ) {
-                $newMainDiv = $( '<div class=boughtItem></div>' );
+                var $newMainDiv = $( '<div class=boughtItem></div>' );
                 $newMainDiv.append( image.clone() );
                 
-                $newDiv = $( '<div style="width:240px;"><p>' + product['title'] + '</p></div>' );
+                var $newDiv = $( '<div style="width:240px;"><p>' + product['title'] + '</p></div>' );
                 $newMainDiv.append( $newDiv );
                 
                 $newDiv = $( '<div style="width:70px"><p>' + productPrice + '</p></div>' );
                 $newMainDiv.append( $newDiv );
                 
-                $newDiv = $( '<div style="width:69px;"><p>' + productQuantity + '</p></div>' );
+                $newDiv = $( '<div style="width:78px;"><p>' + productQuantity + '</p></div>' );
                 $newMainDiv.append( $newDiv );
                 
                 var totalPrice = (productPrice * productQuantity).toFixed(2);
-                console.log(totalPrice);
                 $newDiv = $( '<div style="width:119px;"><p>' + (totalPrice) + '</p></div>' );
                 $newMainDiv.append( $newDiv );
                 
                 $newDiv = $( '<div style="width:100px;margin-left:20px;"><input type=button value=Remove></input></div>' );
                 $newMainDiv.append( $newDiv );
                 
-                $( '#buyDisplay' ).append( $newMainDiv );
+                $('#buyDisplay').append( $newMainDiv );
                 
                 //update the total
                 var $totalDisplay = $( '#footer input' ).eq(1);
-                console.log(parseFloat( $totalDisplay.val() ));
-                $totalDisplay.val( parseFloat( $totalDisplay.val() ) + parseFloat(totalPrice) );
+                var totalBill = (parseFloat( $totalDisplay.val() ) + parseFloat(totalPrice)).toFixed(2);
+                $totalDisplay.val( totalBill );
                 
-                alert( "Successfully added " + productQuantity + " " + product["title"] + "\nCurrentTotal : " + $('#footer input').eq(1).val());
+                alert( "Successfully added " + productQuantity + " " + product["title"] + "\nCurrentTotal : " + $totalDisplay.val());
                 
                 //Update the MyCart heading
-                $( 'div.headings' ).eq(1).find( 'p' ).text( "My Cart (" + $('#buyDisplay').find('div.boughtItem').length + ")" );
+                $( 'div.headings' ).eq(1).find( 'p' ).text( "My Cart (" + $boughtItemsDisplay.find('div.boughtItem').length + ")" );
             }
         });
     }
         //action of the remove button
         $( 'div.boughtItem input' ).live( 'click', function() {
-            
+            var $parentDiv = $(this).parents( 'div.boughtItem' );
             //the amount to delete
-            var removeValue = ($(this).parents( 'div.boughtItem' ).find( 'p:last' ).text());
+            var removeValue = $parentDiv.find( 'p:last' ).text();
             
             //update the total display
             var $totalDisplay = $( '#footer input' ).eq(1);
-            $totalDisplay.val( parseFloat( $totalDisplay.val() ) - removeValue );
-            $(this).parents( 'div.boughtItem' ).remove();
+            $totalDisplay.val( (parseFloat( $totalDisplay.val() ) - parseFloat(removeValue)).toFixed(2) );
+            $parentDiv.remove();
             
             //update the heading with the total number of boughtItem divs in the buyDisplay div
-            $( 'div.headings' ).eq(1).find( 'p' ).text( "My Cart (" + $( '#buyDisplay' ).find( 'div.boughtItem' ).length + ")" );
+            $( 'div.headings' ).eq(1).find( 'p' ).text( "My Cart (" + $boughtItemsDisplay.find( 'div.boughtItem' ).length + ")" );
         });
         
         //action for a change in the dropdown menu for categories
         $( '#categories' ).change( function() {
-            var displayOnly = $(this).val();
-            if( displayOnly != "All" ) {
-                $displayedDivs = $( 'div.displayItem' );
+            var displayOnly = $(this).val().trim();
+            $displayedDivs = $( 'div.displayItem' );
+            if( displayOnly != ("All")) {    
                 $displayedDivs.hide();
                 $.each( $displayedDivs, function(){
                     var displayedCategory = $(this).data( 'linkedTo' )[1][ "category" ].split(':')[1].trim();
@@ -146,6 +146,7 @@ $(function() {
                 });
             }
             else {
+                console.log("else called");
                 $displayedDivs.show();
             }
         });
@@ -153,13 +154,21 @@ $(function() {
         //action for the search button
         //change the category in the dropdown menu and call its change function
         $( '#search' ).click(function() {
-            $( '#categories' ).val( $( '#searchItem' ).val().trim() );
-            $( '#categories' ).change();
+            var $categories = $( '#categories' );
+            $categories.val( $( '#searchItem' ).val().trim() );
+            $categories.change();
         });
         
         //action for the clear button
         $('#clear').click(function() {
             $( '#searchItem' ).val("");
             $( '#search' ).click();    
-        });     
+        });
+        
+        //checkout button
+        $('#checkout').click(function() {
+            var totalBill = $( '#footer input' ).eq(1).val();
+            alert("Checking Out!!...\n Please Submit your bill of "+totalBill+" to avoid harmful actions");
+            
+        });
 });

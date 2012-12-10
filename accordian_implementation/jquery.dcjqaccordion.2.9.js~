@@ -9,7 +9,9 @@
  */
 
 (function($){
-  
+  $.fn.adad = function(options) {
+  console.log("huahauhauha");
+  }
 	$.fn.dcAccordion = function(options) {
 
 		//set default options 

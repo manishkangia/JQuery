@@ -3,6 +3,23 @@ margin:0px;
 padding:0px;
 }
 
+#header div.active {
+    background:Cadetblue;
+    border-bottom:1px solid Cadetblue;
+}
+#bill {
+    margin-top:5px;
+    height:25px;
+}
+#checkout {
+    width:230px;
+    height:30px;
+    margin-top:6px;
+    border:2px solid gray;
+    background:Lightgray;
+    color:white;
+    font-size:17px;
+}
 #container {
     background:Lightblue;
     position:relative;

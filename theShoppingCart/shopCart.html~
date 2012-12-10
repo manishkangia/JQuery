@@ -11,7 +11,7 @@
     <body>
         <div id="container">
             <div id="header">
-                <div class="headings" align="center" style="background:Lightgray;border-bottom:1px solid Cadetblue"><p style="margin-top:3px;">Products</p>
+                <div class="headings active" align="center" style=""><p style="margin-top:3px;">Products</p>
                 </div>
                 <div class="headings" align="center"><p style="margin-top:3px;">My Cart (0)</p>
                 </div>
@@ -23,9 +23,9 @@
                 <input id="clear"  type="button" value="Clear" style="margin-right:4px;"></input>
                 &nbsp;&nbsp;&nbsp;&nbsp;Categories&nbsp;:
                 <select id="categories" style="margin-top:5px;">
-                    <option>All&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
-                    <option>Computers</option>
-                    <option>Cameras</option>
+                    <option>all</option>
+                    <option>computers</option>
+                    <option>cameras</option>
                 </select>
             </div>
             <div id="containDisplay">
@@ -41,8 +41,8 @@
                 </div>
             </div>
             <div id="footer">
-                <input id="checkout" type="button" value="CheckOut" style="width:230px;height:30px;margin-top:10px;border:2px solid gray;background:Lightgray;color:white;font-size:17px;"></input>
-                <input disabled type="text" value="0.0" style="margin-top:9px;height:25px;"></input>
+                <input id="checkout" type="button" value="CheckOut" ></input>
+                <input disabled id="bill" type="text" value="0.0" ></input>
                 <p style="float:right;margin-top:15px;height:25px;">Total:&nbsp;&nbsp;</p>
             </div>
         </div>

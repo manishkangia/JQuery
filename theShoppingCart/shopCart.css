@@ -3,6 +3,10 @@ margin:0px;
 padding:0px;
 }
 
+#header div.active {
+    background:Cadetblue;
+    border-bottom:1px solid Cadetblue;
+}
 #container {
     background:Lightblue;
     position:relative;

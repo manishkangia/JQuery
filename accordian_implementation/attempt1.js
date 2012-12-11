@@ -1,5 +1,4 @@
 function assignid() {
-    console.log("assigning ids");
     var $targetli = $('ul.accordion li');
     var id=0;
     $.each($targetli,function() {
@@ -9,16 +8,17 @@ function assignid() {
 }
 
 function activateLink(linkId) {
-    console.log("activating link"+linkId);
     $choosenItem = $('#' + linkId);
     $anchorItem = $choosenItem.find('a');
-    console.log($choosenItem.parents('ul.accordion'));
-    $choosenItem.parents('ul.accordion').each(function() {
-        $(this).find('li a:first').click();
-    });
+    $parents = $choosenItem.parents('ul.accordion');
+    
+    for( var i = $parents.length-1; i >= 0; i--) {
+        $parents.eq(i).parent('li').find('a').eq(0).click();
+    }
     
     $anchorItem.addClass('dcjq-parent');
 }
+
 $(document).ready(function() {
     assignid();
     //to retrieve the search element from the href if any
@@ -34,7 +34,5 @@ $(document).ready(function() {
     //if there is an element to be highlighted
     if(highlightItem!= undefined) {
         activateLink(highlightItem);
-    }
-    
-    
+    }    
 });

@@ -1,5 +1,26 @@
-$(document).ready(function() {
+function assignid() {
+    console.log("assigning ids");
+    var $targetli = $('ul.accordion li');
+    var id=0;
+    $.each($targetli,function() {
+        $(this).attr("id",id);
+        id++;
+    });
+}
+
+function activateLink(linkId) {
+    console.log("activating link"+linkId);
+    $choosenItem = $('#' + linkId);
+    $anchorItem = $choosenItem.find('a');
+    console.log($choosenItem.parents('ul.accordion:not last'));
+    $choosenItem.parents('ul.accordion').each(function() {
+        $(this).find('li a:first').click();
+    });
     
+    $anchorItem.addClass('dcjq-parent');
+}
+$(document).ready(function() {
+    assignid();
     //to retrieve the search element from the href if any
     var highlightItem = window.location.search.split("=")[1];
     
@@ -12,12 +33,8 @@ $(document).ready(function() {
     
     //if there is an element to be highlighted
     if(highlightItem!= undefined) {
-        $choosenItem = $('#' + highlightItem);
-        $anchorItem = $choosenItem.find('a');
-        $choosenItem.parents('ul').css('display','block');
-        $anchorItem.addClass('dcjq-parent');
-        
-        var html = $('<p style="font-size:35px;margin:0px;">'+$anchorItem.text()+' item</p>');
-        $('div.right').eq(0).html(html);
+        activateLink(highlightItem);
     }
+    
+    
 });

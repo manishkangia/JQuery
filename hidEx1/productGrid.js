@@ -16,7 +16,7 @@ $(function () {
     //display all initially in various divs
     for (var i = 0; i < list.length; i++) {
         var $newDiv = $( '<div class=ad style=float:left></div>' );
-        src = "images/" + list[i].url;
+        var src = "images/" + list[i].url;
         var $image = $( "'<img src=" + src + "></img>'");
         $newDiv.append($image);
         //link the associated json object
@@ -58,7 +58,7 @@ $(function () {
     //function to show divs that match the value that has been selected in the json object attached to them as data
     function showdivs($divs,selectedvalues,factor) {
         for ( var i = 0; i < $divs.length; i++ ) {
-            $currentDiv = $divs.eq(i);
+            var $currentDiv = $divs.eq(i);
             for ( var j = 0; j < selectedvalues.length; j++ ) {
                 if ( $currentDiv.data("object")[factor] == selectedvalues[j] ) {
                     $currentDiv.show();

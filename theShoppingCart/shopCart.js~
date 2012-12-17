@@ -46,12 +46,11 @@ $(function() {
         
         //hide the buy display div(the one associated with heading 'My Cart'
         $boughtItemsDisplay.hide();
-    }
+    
 
     //the action to be performed on the click on 'add to cart' button
-    $( 'div.qtyAdd input[type="button"]' ).live('click', function() {
+    $( 'div.qtyAdd').delegate( 'input[type="button"]','click', function() {
         var productQuantity = parseInt($(this).siblings( 'input' ).val());
-        $(this).siblings( 'input' ).val("0");
         var objNumber;
         var product;
         var productPrice;
@@ -67,7 +66,7 @@ $(function() {
             alert( "please select appropriate quatity" );
         }                        
     });
-
+}
     //function to add the element in the second div'my cart'    
     function addDisplay( jsonobj, productPrice, productQuantity, image ) {
         var $newMainDiv = $( '<div class=boughtItem></div>' );
@@ -95,14 +94,13 @@ $(function() {
         var totalBill = (parseFloat( $totalDisplay.val() ) + parseFloat(totalPrice)).toFixed(2);
         $totalDisplay.val( totalBill );
         
-        alert( "Successfully added " + productQuantity + " " + jsonobj["title"] + "\nCurrentTotal : " + $totalDisplay.val());
-        
         //Update the MyCart heading
         $( 'div.headings' ).eq(1).find( 'p' ).text( "My Cart (" + $boughtItemsDisplay.find('div.boughtItem').length + ")" );
-    }
+    
 
     //action of the remove button
-    $( 'div.boughtItem input' ).live( 'click', function() {
+    $( 'div.boughtItem' ).delegate('input', 'click', function() {
+        console.log('saa');
         var $parentDiv = $(this).parents( 'div.boughtItem' );
         //the amount to delete
         var removeValue = $parentDiv.find( 'p:last' ).text();
@@ -115,7 +113,7 @@ $(function() {
         //update the heading with the total number of boughtItem divs in the buyDisplay div
         $( 'div.headings' ).eq(1).find( 'p' ).text( "My Cart (" + $boughtItemsDisplay.find( 'div.boughtItem' ).length + ")" );
     });
-        
+    }    
     //assign the click function to the headings: 'Products'
     $( 'div.headings' ).eq(0).click( function() {
         $( 'div.headings.active' ).removeClass('active');

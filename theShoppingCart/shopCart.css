@@ -101,6 +101,7 @@ padding:0px;
 }
 
 .headings {
+    cursor : pointer;
     width:200px;
     height:30px;
     float:left;

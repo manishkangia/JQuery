@@ -73,10 +73,12 @@ $(function() {
 }
     //function to add the element in the second div'my cart'    
     function addDisplay( index,jsonobj, productPrice, productQuantity, image ) {
-        //to remove the entry of the same item if it exists
+        //to find the entry of the same item if it exists and add that quantity to the new one
         $.each( $('div#buyDisplay div.boughtItem'),function() {
             if($(this).data("index") == index) {
                 $(this).find('input').eq(0).click();
+                var initialQty = parseInt($(this).find('div.quantity p').text());
+                productQuantity += initialQty;
             }
         });
         
@@ -89,7 +91,7 @@ $(function() {
         $newDiv = $( '<div style="width:70px"><p>' + productPrice + '</p></div>' );
         $newMainDiv.append( $newDiv );
         
-        $newDiv = $( '<div style="width:78px;"><p>' + productQuantity + '</p></div>' );
+        $newDiv = $( '<div class=quantity style="width:78px;"><p>' + productQuantity + '</p></div>' );
         $newMainDiv.append( $newDiv );
         
         var totalPrice = (productPrice * productQuantity).toFixed(2);

@@ -11,18 +11,15 @@ $.ajax({
 });
 
 $(function () {
-    var list = myJSONObject;
-    
+        
     //display all initially in various divs
-    for (var i = 0; i < list.length; i++) {
-        var $newDiv = $( '<div class=ad style=float:left></div>' );
-        var src = "images/" + list[i].url;
+    $.each(myJSONObject,function(index,entry) {
+        var $newDiv = $( "<div class='ad' data-brand="+entry.brand.split(" ")[1]+" data-color="+ entry.color+" sold_out=" + entry.sold_out+" style=float:left></div>" );
+        var src = "images/" + entry.url;
         var $image = $( "'<img src=" + src + "></img>'");
         $newDiv.append($image);
-        //link the associated json object
-        $newDiv.data( "object", myJSONObject[i]);
         $( '#container' ).append($newDiv);
-    }
+    });
     
     //assigning a function on click of each parameter
     $( '#parameters ul li input' ).click( function() {
@@ -60,7 +57,7 @@ $(function () {
         for ( var i = 0; i < $divs.length; i++ ) {
             var $currentDiv = $divs.eq(i);
             for ( var j = 0; j < selectedvalues.length; j++ ) {
-                if ( $currentDiv.data("object")[factor] == selectedvalues[j] ) {
+                if ( $currentDiv.attr(factor) == selectedvalues[j] ) {
                     $currentDiv.show();
                 }    
             }

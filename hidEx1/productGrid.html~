@@ -15,23 +15,23 @@
   <body style="background:gray;">
       <div style="width:100%;height:100%;background:gray;">
           <div id="parameters" style="width:400px;float:left;">
-          <ul class="brand" id="selectbrand">Brands :
-              <li><input class="brand" type="checkbox" value="BRAND A">Brand A</li>
-              <li><input class="brand" type="checkbox" value="BRAND B">Brand B</li>
-              <li><input class="brand" type="checkbox" value="BRAND C">Brand C</li>
-              <li><input class="brand" type="checkbox" value="BRAND D">Brand D</li>
+          <ul class="data-brand" id="selectbrand">Brands :
+              <li><input class="data-brand" type="checkbox" value="A">Brand A</li>
+              <li><input class="data-brand" type="checkbox" value="B">Brand B</li>
+              <li><input class="data-brand" type="checkbox" value="C">Brand C</li>
+              <li><input class="data-brand" type="checkbox" value="D">Brand D</li>
           </ul>
-          <ul class="color" id="selectcolor">Colors :
-              <li><input class="color" type="checkbox" value="Blue">Blue</li>
-              <li><input class="color" type="checkbox" value="Green">Green</li>
-              <li><input class="color" type="checkbox" value="Red">Red</li>
-              <li><input class="color" type="checkbox" value="Yellow">Yellow</li>
+          <ul class="data-color" id="selectcolor">Colors :
+              <li><input class="data-color" type="checkbox" value="Blue">Blue</li>
+              <li><input class="data-color" type="checkbox" value="Green">Green</li>
+              <li><input class="data-color" type="checkbox" value="Red">Red</li>
+              <li><input class="data-color" type="checkbox" value="Yellow">Yellow</li>
           </ul>
           <ul class="sold_out" >
               <li><input id="toggler" class="sold_out" type="checkbox" value="0">Available Only</input></li>
           </ul>
           </div>
-          <div id="container" style="">
+          <div id="container">
           </div>
       </div>
   </body>

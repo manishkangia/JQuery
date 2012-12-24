@@ -1,0 +1,31 @@
+p { margin : 0px;}
+img{ height : 18px; width : 20px;float:right;}
+.hidden { height : 0px; width:0px;border:0px;padding:0px;}
+img.delete{ height:20px;width:20px;position:absolute ; left:-20px;top:-3px;}
+div.employee0,div.employee1, div.roles, div.empinrole { border-top : 1px black solid; position : relative;}
+div.employee0 { background : gray; position : relative;}
+div.empinrole { margin-left: 0px; position: relative;}
+h1 { font-size : 20px; }
+#container { postion: relative; background : cadetBlue; height:100%;}
+#roles,#employees,#to-dos { float:left;border: 1px solid black; margin : 50px 20px 0px 50px; }
+#to-dos {  position : relative; left : 260px; }
+#roles { width:150px; }
+#employees { width:202px; position:fixed; left : 220px;}
+#to-dos { width: 650px; }
+#to-do-head { height : 50px;}
+div.toDoHeading { background : gray; border-bottom: 1px lightgray solid;}
+.to-dos{ border: 1px solid black;border-right : 0px; border-left : 0px;}
+img.at-to-do { height : 18px; width : 20px; float:right;}
+p.to-do-headings { padding : 0px;}
+.empToDo div.tasks div { margin : 0px;float:left;}
+.empToDo div{ border: 0px;margin-top:5px;margin-left : 10px;}
+.empToDo div.tasks { width : 480px;}
+div.empToDo { background : darkGrey;border: 1px solid gray; overflow:auto; height:12%;}
+.empToDo p.name {width:90px;}
+div.to-dos { clear : both;}
+div.tasks input { width : 400px; float:left;border-style : inset;}
+div.tasks img { float : left;}
+div.tasks img { height : 25px; width : 25px; margin-left : 5px;}
+div.tasks p { width : 400px; float:left;}
+div.tasks img.hidden { width : 0px; height : 0px;}
+div.empToDo div.name { width : 100px; float:left; border:1px solid black;}

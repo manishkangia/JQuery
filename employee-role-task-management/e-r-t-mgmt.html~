@@ -18,7 +18,7 @@
             </div>
             <div id="to-dos">
             <div id="to-do-head" >
-            <p style="float:left;margin-left:280px;margin-top:15px;font-size:20px;"><b>ToDos</b></p><img id="to-do-hide" src=mini.png style='height:20px; ></img><img id="to-do-show" src=plus.png></img>
+            <p style="float:left;margin-left:280px;margin-top:15px;font-size:20px;"><b>ToDos</b></p><img id="to-do-hide" src=mini.png style='height:20px;' ></img><img id="to-do-show" src=plus.png></img>
             </div>
             </div>
         </div>
